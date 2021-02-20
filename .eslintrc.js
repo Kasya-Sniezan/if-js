@@ -12,5 +12,6 @@ module.exports = {
   },
   rules: {
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-param-reassign': ['error', { "props": true, 'ignorePropertyModificationsFor': ['Event'] }],
   },
 };
