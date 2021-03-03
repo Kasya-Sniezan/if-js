@@ -101,26 +101,17 @@ function sum(a) {
 console.log(sum(5)(2));
 
 // Lesson-4 Ex.6
-const pFirst = document.getElementById('text1');
-const pSecond = document.getElementById('text2');
-const pThird = document.getElementById('text3');
-
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-let i = 0;
-let j = 0;
-let k = 0;
+const pSelected = document.getElementsByTagName('p');
 
-pFirst.addEventListener('click', (Event) => {
-  Event.target.style.color = colors[i];
-  i += 1;
-});
+const counter = function getCounter() {
+  let i = 0;
+  return function () {
+    this.style.color = colors[i];
+    i += 1;
+  };
+};
 
-pSecond.addEventListener('click', (Event) => {
-  Event.target.style.color = colors[j];
-  j += 1;
-});
-
-pThird.addEventListener('click', (Event) => {
-  Event.target.style.color = colors[k];
-  k += 1;
-});
+for (let k = 0; k < colors.length; k++) {
+  pSelected[k].addEventListener('click', counter());
+}
